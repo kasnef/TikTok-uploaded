@@ -1,15 +1,14 @@
 import os
+import time
 from colorama import Fore, Style
 from multiprocessing import Process
 from module.load_proxy_module import load_proxies
 from module.check_data_module import check_ssid
 from module.load_ssid_module import load_ssid
+from module.upload_with_ssid_uc  import upload_videos_uc
 from module.upload_with_ssid import upload_videos
 
 os.system("cls")
-print("---------------------------------------------------------------------------- \n")
-print("---------------------------------------------------------------------------- \n")
-print("---------------------------------------------------------------------------- \n")
 
 def get_c_user_from_cookie(ssid):
     user = ssid.split(" ")[0]
@@ -17,7 +16,7 @@ def get_c_user_from_cookie(ssid):
     return user_name
 
 def run_process(ssid, caption, wait_time, browser_name):
-    process_action = upload_videos()
+    process_action = upload_videos_uc()
     c_user = get_c_user_from_cookie(ssid)
     browser_name_with_c_user = f"{browser_name}: {c_user} "
     process_action.run_upload_videos(ssid, caption, wait_time, browser_name_with_c_user)
@@ -71,10 +70,11 @@ if __name__ == "__main__":
         
         for ssid in ssid_list:
             ssid_login = ssid.strip()
-            browser_choose == "2":
             process = Process(target=run_process, args=(ssid_login, caption, wait_time, browser_name))
             processes.append(process)
             process.start()
             
         for process in processes:
             process.join()
+            
+        time.sleep(10000)

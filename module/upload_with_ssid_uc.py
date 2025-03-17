@@ -3,6 +3,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
+import undetected_chromedriver as uc
 from colorama import Fore, Style
 from seleniumwire import webdriver
 from module.get_videos_module import get_video_files
@@ -11,7 +12,7 @@ import time
 import toml
 import os
 
-class upload_videos:
+class upload_videos_uc:
     def __init__(self):
         self.adminNoiti = Fore.CYAN + "Admin: "
         self.systemNoiti = Fore.GREEN + "System: "
@@ -21,7 +22,7 @@ class upload_videos:
         
     def run_upload_videos(self, ssid, caption, wait_time, process_name):
         
-        options = webdriver.FirefoxOptions()
+        options = uc.ChromeOptions()
         
         #options.add_argument('--headless')
         options.add_argument('--lang=en')
@@ -31,7 +32,7 @@ class upload_videos:
         options.add_argument('--enable-automation')
         options.add_argument('--ignore-certificate-errors') 
         options.add_argument("--disable-blink-features=AutomationControlled")
-        driver = webdriver.Firefox(options=options, )
+        driver = uc.Chrome(options=options)
             
         video_files = get_video_files()
         
@@ -85,22 +86,12 @@ class upload_videos:
             upload_box = WebDriverWait(driver, 10).until(
                 EC.presence_of_element_located((By.XPATH, config['selectors']['upload']['upload_video']))
             )
-            upload_box.send_keys(videos_path + "\\" + video)
+            video_path = os.path.normpath(os.path.join(videos_path, video))
+            upload_box.send_keys(video_path)
             print(f"{self.systemNoiti}" + Fore.CYAN + f"{process_name}: Upload: {video}")
             print("--------------------------------------------------------------------------------")
             print(Style.RESET_ALL)
             time.sleep(random.randint(3, 5))
-            
-            upload_progress = EC.presence_of_element_located(
-                (By.XPATH, config['selectors']['upload']['upload_in_progress'])
-            )
-            upload_confirmation = EC.presence_of_element_located(
-                (By.XPATH, config['selectors']['upload']['upload_confirmation'])
-            )
-            WebDriverWait(driver, config['explicit_wait']).until(upload_confirmation)
-            
-            process_confirmation = EC.presence_of_element_located((By.XPATH, config['selectors']['upload']['process_confirmation']))
-            WebDriverWait(driver, config['explicit_wait']).until(process_confirmation)
             
             try:
                 desc = wait.until(EC.presence_of_element_located((By.XPATH, config['selectors']['upload']['description'])))
