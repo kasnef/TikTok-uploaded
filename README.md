@@ -55,13 +55,12 @@ Or you can manually install according to the following steps (If you have alread
   python Tiktok.py
 ```
 ## Contact
+<img width="20%" height="20%" alt="image" src="https://github.com/user-attachments/assets/6b1843e6-bc85-4599-95ff-c840823d58eb" style="text-align: center;" /> <br>
 - <a href="https://t.me/kasnef" target="blank"><img align="center" src="https://raw.githubusercontent.com/svg-image-stograge/svg-stograge/main/telegram.svg" alt="https://t.me/it_is_daijobu" height="30" width="40" />Kasnef</a>
-- <a href="https://www.facebook.com/cacodelinhtinh/" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/facebook.svg" alt="https://www.facebook.com/cacodelinhtinh/" height="30" width="40" />Cá đang codde linh tinh</a>
+- <a href="https://www.facebook.com/cacodelinhtinh/" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/facebook.svg" alt="https://www.facebook.com/cacodelinhtinh/" height="30" width="40" />Cá đang codde linh tinh</a> 
 - <img align="center" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Gmail_icon_%282020%29.svg/1280px-Gmail_icon_%282020%29.svg.png" alt="nguyentrananhkhoa.wf@gmail.com" height="30" width="30" /> nguyentrananhkhoa.wf@gmail.com
 
 
 # Authors
-  <img width="20%" height="20%" alt="image" src="https://github.com/user-attachments/assets/6b1843e6-bc85-4599-95ff-c840823d58eb" />
-- 
 - [@kasnef]([https://github.com/carp-calangthang](https://github.com/kasnef))
 - [@firet](https://github.com/firetofficial)
